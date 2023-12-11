@@ -1,5 +1,5 @@
-# javaspringboot
-## Links fue die Endpunkte
+# Java Spring Boot
+## Links fuer die Endpunkte
 GET (all): /todo <br>
 GET (search by id): /todo/{id} <br>
 GET (search todo containing {name}): /todo/name/{name} <br>
