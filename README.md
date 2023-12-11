@@ -1,9 +1,9 @@
 # javaspringboot
 ## Links fue die Endpunkte
-GET (): /todo
-GET (search by id): /todo/{id}
-GET (search todo containing {name}): /todo/name/{name} 
-GET (search by completion status; true or false): /todo/status/{status}
+GET (): /todo <br>
+GET (search by id): /todo/{id} <br>
+GET (search todo containing {name}): /todo/name/{name} <br>
+GET (search by completion status; true or false): /todo/status/{status} <br>
 
 POST: /todo
 PUT: /todo/{id}
