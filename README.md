@@ -4,8 +4,8 @@ GET (all): /todo <br>
 GET (search by id): /todo/{id} <br>
 GET (search todo containing {name}): /todo/name/{name} <br>
 GET (search by completion status; true or false): /todo/status/{status} <br>
-GET (all, sort by name, ASC): /todo/name <br>
-GET (all, sort by id, DESC): /todo/id <br>
+GET (all, sort by name, ASC): /todo/sort/name <br>
+GET (all, sort by id, DESC): /todo/sort/id <br>
 
 POST: /todo <br>
 PUT: /todo/{id} <br>
