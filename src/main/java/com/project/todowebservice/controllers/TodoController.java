@@ -1,5 +1,6 @@
 package com.project.todowebservice.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -34,6 +35,44 @@ public class TodoController {
                 throw new Exception("Repo not initialized");
             List<Todo> todoList = new ArrayList<Todo>();
             todoRepository.findAll().forEach(todoList::add);
+            if (todoList.isEmpty())
+            {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(todoList, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }        
+    }
+
+    @GetMapping("/sort/name")
+    public ResponseEntity<List<Todo>> sortTodoByName()
+    {
+        try
+        {
+            List<Todo> todoList = new ArrayList<Todo>();
+            todoRepository.findAll(Sort.by(Sort.Direction.ASC, "name")).forEach(todoList::add);
+            if (todoList.isEmpty())
+            {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(todoList, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }        
+    }
+
+    @GetMapping("/sort/id")
+    public ResponseEntity<List<Todo>> sortTodoByID()
+    {
+        try
+        {
+            List<Todo> todoList = new ArrayList<Todo>();
+            todoRepository.findAll(Sort.by(Sort.Direction.DESC, "id")).forEach(todoList::add);
             if (todoList.isEmpty())
             {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -125,8 +164,7 @@ public class TodoController {
             return new ResponseEntity<>(todoRepository.save(t), HttpStatus.OK);
             
         } 
-        else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-   
+        else return new ResponseEntity<>(HttpStatus.NOT_FOUND);   
     }
 
     @DeleteMapping("/{id}")
