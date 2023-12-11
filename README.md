@@ -1,13 +1,13 @@
 # javaspringboot
 ## Links fue die Endpunkte
-GET (): /todo <br>
+GET (all): /todo <br>
 GET (search by id): /todo/{id} <br>
 GET (search todo containing {name}): /todo/name/{name} <br>
 GET (search by completion status; true or false): /todo/status/{status} <br>
 
-POST: /todo
-PUT: /todo/{id}
-DELETE: /todo/{id}
+POST: /todo <br>
+PUT: /todo/{id} <br>
+DELETE: /todo/{id} <br>
 
 ## Java Spring Boot Todo-Webservice
 Aufgabe
