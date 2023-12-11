@@ -107,7 +107,7 @@ public class TodoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Todo> completeTodo(@PathVariable("id") long id, @RequestBody Todo info)
+    public ResponseEntity<Todo> editTodo(@PathVariable("id") long id, @RequestBody Todo info)
     {
         Optional<Todo> todo = todoRepository.findById(id);
 

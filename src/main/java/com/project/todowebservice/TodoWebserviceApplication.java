@@ -5,7 +5,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-
 import com.project.todowebservice.models.Todo;
 import com.project.todowebservice.repositories.TodoRepository;
 
@@ -19,11 +18,13 @@ public class TodoWebserviceApplication {
 		SpringApplication.run(TodoWebserviceApplication.class, args);
 	}
 
+	//Use a CommandLineRunner to execute the logic when the application starts.
 	@Bean
 	public CommandLineRunner demo(TodoRepository repo)
 	{
 		return (args) ->
 		{
+			// Save sample Todos to the repository
 			repo.save(new Todo("Project initialization", true));
 			repo.save(new Todo("Data model", true));
 			repo.save(new Todo("Repository", false));

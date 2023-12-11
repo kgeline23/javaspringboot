@@ -1,11 +1,13 @@
 package com.project.todowebservice.models;
-
-import org.springframework.lang.Nullable;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
+/**
+ * Entity class representing a Todo item.
+ * Contains fields for id, name, and status.
+ */
 
 @Entity
 public class Todo {
